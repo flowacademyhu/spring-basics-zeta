@@ -22,7 +22,7 @@ public class BasicService {
       return null;
       // throw new EntityNotFoundException();
     }
-    return basicRepository.findOne(id);
+    return basicRepository.findById(id).get();
   }
 
   public BasicModel save(BasicModel basicModel) {
@@ -43,6 +43,6 @@ public class BasicService {
     if (id == null) {
       throw new RuntimeException();
     }
-    basicRepository.delete(id);
+    basicRepository.deleteById(id);
   }
 }

@@ -1,15 +1,24 @@
 package hu.flowacademy.spring.first.basic_workflow;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table
 public class BasicModel {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column
   private Long id;
 
+  @Column
   private String name;
 
+  @Column
   private String age;
 
+  @Column
   private LocalDateTime updateAt;
 
   public Long getId() {
