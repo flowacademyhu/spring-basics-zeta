@@ -1,5 +1,7 @@
 package hu.flowacademy.spring.first.basic_workflow;
 
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -20,6 +22,14 @@ public class BasicModel {
 
   @Column
   private LocalDateTime updateAt;
+
+  public BasicModel() {
+  }
+
+  public BasicModel(String name, String age) {
+    this.name = name;
+    this.age = age;
+  }
 
   public Long getId() {
     return id;

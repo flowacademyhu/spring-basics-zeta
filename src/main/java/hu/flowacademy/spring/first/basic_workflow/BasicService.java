@@ -45,4 +45,12 @@ public class BasicService {
     }
     basicRepository.deleteById(id);
   }
+
+  public List<BasicModel> findByName(String name) {
+    return basicRepository.findByName(name);
+  }
+
+  public void deleteAll() {
+    basicRepository.deleteAll();
+  }
 }

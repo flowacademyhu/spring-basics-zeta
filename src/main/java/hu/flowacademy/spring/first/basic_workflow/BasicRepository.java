@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BasicRepository extends JpaRepository<BasicModel, Long> {
 
+    List<BasicModel> findByName(String name);
+
+    @Query("select basicVar from BasicModel basicVar where length(basicVar.name) > ?1")
+    List<BasicModel> findBySpecificName(int length);
+
+//    @Query(nativeQuery = true, value = "select * from basic_model where basic_model.name = 'asd'")
+//    List<BasicModel> getAllAsdNames();
 }
 //public class BasicRepository {
 //
